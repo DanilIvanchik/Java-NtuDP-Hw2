@@ -39,7 +39,7 @@ public class Main {
     }
     public static void mainFunctions(Array myArray){
 
-        System.out.println("Choose your option, enter the number: \n1)Show my array \n2)Find min \n3)Find max \n4)Find average \n5)Find average geometric \n6)Choose another option \n7)Restart \n8)Exit");
+        System.out.println("Choose your option, enter the number: \n1)Show my array \n2)Find min \n3)Find max \n4)Find average \n5)Find average geometric \n6)Choose another option \n7)Restart \n8)Exit \n9)Reset matrix with random numbers");
 
         try {
             Integer currentOption = Integer.valueOf(scanner.nextLine());
@@ -74,6 +74,9 @@ public class Main {
                     System.out.println("Zzz...");
                     System. exit(0);
                     break;
+                case 9:
+                    myArray.setRandomArray();
+                    mainFunctions(myArray);
                 default:
                     System.out.println("Error! Choose correct function!");
                     mainFunctions(myArray);

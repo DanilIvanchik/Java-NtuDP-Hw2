@@ -1,10 +1,11 @@
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Array {
 
     static Scanner scanner = new Scanner(System.in);
-
+    Random random = new Random();
     int[][] myArray;
     private Scanner sc;
     int sizeWidth;
@@ -87,6 +88,17 @@ public class Array {
             }
         }
 
+    }
+    void setRandomArray(){
+        int min = -100;
+        int max =100;
+        for(int i=0; i<myArray.length; i++) {
+            for (int j = 0; j < myArray[i].length; j++) {
+                int diff = max - min;
+                myArray[i][j] = random.nextInt(diff + 1);
+                myArray[i][j]+= min;
+            }
+        }
     }
 
 }
