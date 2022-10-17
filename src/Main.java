@@ -14,10 +14,10 @@ public class Main {
 
         try {
             System.out.println("Enter the width of your matrix (n)");
-            Integer sizeWidth = Integer.valueOf(scanner.nextLine());
+            int sizeWidth = Integer.parseInt(scanner.nextLine());
 
             System.out.println("Enter the height of your matrix");
-            Integer sizeHeight = Integer.valueOf(scanner.nextLine());
+            int sizeHeight = Integer.parseInt(scanner.nextLine());
 
             if (sizeHeight<1 | sizeHeight>20){
                 System.out.println("Incorrect value, the allowable range of variables is from 1 to 20");
@@ -42,7 +42,7 @@ public class Main {
         System.out.println("Choose your option, enter the number: \n1)Show my array \n2)Find min \n3)Find max \n4)Find average \n5)Find average geometric \n6)Choose another option \n7)Restart \n8)Exit \n9)Reset matrix with random numbers");
 
         try {
-            Integer currentOption = Integer.valueOf(scanner.nextLine());
+            int currentOption = Integer.parseInt(scanner.nextLine());
             switch (currentOption){
                 case 1:
                     myArray.showMyArray();

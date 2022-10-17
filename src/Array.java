@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,7 +6,6 @@ public class Array {
     static Scanner scanner = new Scanner(System.in);
     Random random = new Random();
     int[][] myArray;
-    private Scanner sc;
     int sizeWidth;
     int sizeHeight;
 
@@ -19,10 +17,10 @@ public class Array {
 
     void findMin(){
         int minElement = 2147483647;
-        for(int i=0; i<myArray.length; i++) {
-            for (int j = 0; j < myArray[i].length; j++) {
-                if (myArray[i][j] < minElement){
-                    minElement = myArray[i][j];
+        for (int[] ints : myArray) {
+            for (int anInt : ints) {
+                if (anInt < minElement) {
+                    minElement = anInt;
                 }
             }
         }
@@ -31,10 +29,10 @@ public class Array {
 
     void findMax(){
         int maxElement = 0;
-        for(int i=0; i<myArray.length; i++) {
-            for (int j = 0; j < myArray[i].length; j++) {
-                if (myArray[i][j] > maxElement){
-                    maxElement = myArray[i][j];
+        for (int[] ints : myArray) {
+            for (int anInt : ints) {
+                if (anInt > maxElement) {
+                    maxElement = anInt;
                 }
             }
         }
@@ -43,10 +41,9 @@ public class Array {
 
     void showMyArray(){
         System.out.println("Here is your array:");
-        for (int i = 0; i < myArray.length; i++)
-        {
-            for (int j = 0; (myArray[i] != null && j < myArray[i].length); j++) {
-                System.out.print(myArray[i][j] + " ");
+        for (int[] ints : myArray) {
+            for (int j = 0; (ints != null && j < ints.length); j++) {
+                System.out.print(ints[j] + " ");
             }
 
             System.out.println();
@@ -55,26 +52,26 @@ public class Array {
 
     void findAverage(){
         int arraySum = 0;
-        for(int i=0; i<myArray.length; i++) {
-            for (int j = 0; j < myArray[i].length; j++) {
-                arraySum+=myArray[i][j];
+        for (int[] ints : myArray) {
+            for (int anInt : ints) {
+                arraySum += anInt;
             }
         }
-        double arrayAverage = Double.valueOf(arraySum)/(Double.valueOf(sizeWidth)*Double.valueOf(sizeHeight));
-        System.out.println("Average: "+arrayAverage);;
+        double arrayAverage = (double) arraySum /((double) sizeWidth * (double) sizeHeight);
+        System.out.println("Average: "+arrayAverage);
     }
 
     void findAverageGeometric(){
         int arrayMultiply = 1;
-        for(int i=0; i<myArray.length; i++) {
-            for (int j = 0; j < myArray[i].length; j++) {
-                arrayMultiply*=myArray[i][j];
+        for (int[] ints : myArray) {
+            for (int anInt : ints) {
+                arrayMultiply *= anInt;
             }
         }
 
-        double degree = 1/(Double.valueOf(sizeWidth)*Double.valueOf(sizeHeight));
+        double degree = 1/((double) sizeWidth * (double) sizeHeight);
         double arrayAverageGeometric = Math.pow(arrayMultiply, degree);
-        System.out.println("Average Geometric: "+arrayAverageGeometric);;
+        System.out.println("Average Geometric: "+arrayAverageGeometric);
     }
 
 
@@ -83,7 +80,7 @@ public class Array {
         for(int i=0; i<myArray.length; i++) {
             for (int j = 0; j < myArray[i].length; j++) {
                 System.out.println("Enter the "+i+"/"+j+" element");
-                Integer currentItem = Integer.valueOf(scanner.nextLine());
+                int currentItem = Integer.parseInt(scanner.nextLine());
                 myArray[i][j] = currentItem;
             }
         }
